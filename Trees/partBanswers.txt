@@ -1,0 +1,8 @@
+1. Test A was significantly faster  to build - it looks like the tree was 'lopsided' which meant that Test B had a right branch depth of 0 from the root. 
+    In Test A, there are some levels on the left subtree with the majority on the right which made processing A faster as well.
+2. Test C built a tree in 14 ms vs 533 for Test A - I can see that the subtrees are much more balanced than in A or B.
+    This should make building and processing more efficient with less traversals required (sorted order is not necessarily optimal for a tree)
+3. The shuffled list took a signficant amount of time compared to the other tests. I believe a shuffled tree would be complexity O(logn),
+    where as a shuffled list does not benefit from the search tree property. This means each check on the list only takes us 1 of max n moves forward,
+    while our BST will elminate multiple nodes/values per comparison (decreasing towards the end). 
+4. Per above, each node allows an evaluation that determines a direction that can reduce the data set we are considering by up to 1/2.
